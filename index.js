@@ -1,9 +1,7 @@
 const { SerialPort } = require('serialport');
 const ModbusMaster = require('modbus-rtu').ModbusMaster;
 var mysql = require('mysql');
-const http = require('http');
 
-var server = http.createServer(function (req, res) {
 
 const serialPort = new SerialPort({
     path: '/dev/ttyUSB0',
@@ -98,5 +96,4 @@ function readtemp() {
     }
 }
 
-}).listen(8080);
 setInterval(readtemp, 1000);
